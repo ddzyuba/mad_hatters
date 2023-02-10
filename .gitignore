@@ -1,0 +1,72 @@
+# WordPress #
+############
+wp-config-local.php
+wp-cli.local.yml
+wp-content/uploads
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/updraft/
+wp-content/backupwordpress-*/
+wp-content/managewp/backups/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-config.php
+sitemap.xml
+sitemap.xml.gz
+
+# @TODO writable paths
+wp-content/cache/
+wp-content/backups/
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+!wp-includes/**/*.gz
+
+# Logs and databases #
+######################
+*.log
+*.sql
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+
+# SASS #
+##########
+.sass-cache
+
+# Node JS files, libraries that generated to minify CSS, JS files, etc #
+########################################################################
+**/node_modules
+
+# Lando #
+#########
+.lando.yml
+
+# PHPStorm #
+############
+.idea
+
+# Query Monitor #
+#################
+wp-content/plugins/query-monitor/
+wp-content/db.php
+working/build-delete-urls-table.php
