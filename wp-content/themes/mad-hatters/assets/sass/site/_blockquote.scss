@@ -1,0 +1,150 @@
+.blockquote {
+	height: 538px;
+	margin-top: 113px;
+	position: relative;
+	overflow-x: hidden;
+
+	@media (max-width: 767px) {
+		margin-top: 25px;
+	}
+
+	&__circle-1 {
+		width: 518px;
+		height: 518px;
+		border-radius: 50%;
+		border: 1px solid #EDD5C8;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation: 2.5s ease 0s infinite normal none running expand-1;
+
+		@media (max-width: 500px) {
+			width: 485px;
+			height: 485px;
+		}
+	}
+
+	&__circle-2 {
+		width: 341px;
+		height: 341px;
+		border-radius: 50%;
+		background: #FFFFFF;
+		box-shadow: 0px 0px 64px #EDD5C8;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		animation: 2.5s ease 0s infinite normal none running expand-2;
+
+		@media (max-width: 500px) {
+			width: 254px;
+			height: 254px;
+		}
+	}
+
+	&__text-wrapper {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		@media (max-width: 550px) {
+			width: 80%;
+		}
+	}
+
+	&__text {
+		color: $color__black_1;
+		font-family: $font__main;
+		font-weight: 700;
+		font-size: 48px;
+		line-height: 64px;
+		position: relative;
+
+		@media (max-width: 767px) {
+			line-height: 105.5%;
+			text-align: center;
+		}
+
+		&::before {
+			position: absolute;
+			top: -27px;
+			left: -58px;
+			content: url(assets/img/dist/double-quote.svg);
+			@media (max-width: 767px) {
+				top: -57px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		&::after {
+			position: absolute;
+			bottom: -30px;
+			right: -65px;
+			content: url(assets/img/dist/double-quote.svg);
+			transform: rotate(180deg);
+
+			@media (max-width: 767px) {
+				bottom: -65px;
+				left: 50%;
+				transform: translateX(-50%) rotate(180deg);
+			}
+		}
+	}
+}
+
+@keyframes expand-1 {
+	0% {
+		width: 518px;
+		height: 518px;
+	}
+	20% {
+		width: 538px;
+		height: 538px;
+	}
+	40% {
+		width: 518px;
+		height: 518px;
+	}
+	60% {
+		width: 538px;
+		height: 538px;
+	}
+	80% {
+		width: 518px;
+		height: 518px;
+	}
+	100% {
+		width: 518px;
+		height: 518px;
+	}
+}
+
+@keyframes expand-2 {
+	0% {
+		width: 341px;
+		height: 341px;
+	}
+	20% {
+		width: 361px;
+		height: 361px;
+	}
+	40% {
+		width: 341px;
+		height: 341px;
+	}
+	60% {
+		width: 361px;
+		height: 361px;
+	}
+	80% {
+		width: 341px;
+		height: 341px;
+	}
+	100% {
+		width: 341px;
+		height: 341px;
+	}
+}

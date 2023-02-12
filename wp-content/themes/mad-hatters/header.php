@@ -9,6 +9,7 @@
  * @package Mad_Hatters
  */
 
+$header_logo = get_field( 'header_logo', 'option' );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -24,36 +25,39 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mad-hatters' ); ?></a>
-
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$mad_hatters_description = get_bloginfo( 'description', 'display' );
-			if ( $mad_hatters_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $mad_hatters_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+	<header class="site-header side-padding">
+		<div class="site-header__container container">
+			<?php if ( $header_logo ) : ?>
+				<a 
+					href="<?php echo esc_url( home_url( '/' ) ); ?>"
+					class="site-header__logo-link"
+					rel="home"
+				>
+					<?php 
+					echo wp_get_attachment_image(
+						$header_logo, 
+						'full',
+						false, 
+						array( 'loading' => 'lazy' ) 
+					);
+					?>
+				</a>
 			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mad-hatters' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+			<nav class="site-header__navigation">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+			</nav>
+			<button
+				id="mobile-nav-open-button"
+				aria-controls="js-mobile-nav"
+				aria-expanded="false"
+				aria-label="<?php esc_html_e( 'Button to open mobile navigation', 'mad-hatters' ); ?>"
+			></button>
+		</div>
+	</header>

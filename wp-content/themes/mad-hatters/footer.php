@@ -9,24 +9,41 @@
  * @package Mad_Hatters
  */
 
+$copyright = get_field( 'copyright', 'option' );
 ?>
-
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mad-hatters' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'mad-hatters' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'mad-hatters' ), 'mad-hatters', '<a href="http://underscores.me/">Dmytro Dziuba</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	<footer class="site-footer side-padding">
+		<div class="container">
+			<div class="site-footer__wrapper">
+				<div class="site-footer__col-1">
+					<?php
+					if ( is_active_sidebar( 'footer-column-1' ) ) {
+						dynamic_sidebar( 'footer-column-1' );
+					}
+					?>
+					<?php if ( $copyright ) : ?>
+						<div 
+							class="site-footer__copyright"
+						><?php echo wp_kses_post( $copyright ); ?></div>
+					<?php endif; ?>
+				</div>
+				<div class="site-footer__col-2">
+					<?php
+					if ( is_active_sidebar( 'footer-column-2' ) ) {
+						dynamic_sidebar( 'footer-column-2' );
+					}
+					?>
+				</div>
+				<div class="site-footer__col-3">
+					<?php
+					if ( is_active_sidebar( 'footer-column-3' ) ) {
+						dynamic_sidebar( 'footer-column-3' );
+					}
+					?>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
 
 <?php wp_footer(); ?>
 

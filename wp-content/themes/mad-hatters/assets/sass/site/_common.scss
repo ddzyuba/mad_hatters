@@ -1,0 +1,55 @@
+.container {
+	max-width: 1141px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.side-padding {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.cta-button {
+	background: $color__white;
+	border: 1px solid #CFADAC;
+	border-radius: 6px;
+	color: $color__sandal;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 18px 47px 19px 47px;
+	position: relative;
+	text-decoration: none;
+	transition: all .5s;
+
+	@media (max-width: 500px) {
+		display: block;
+	}
+
+	&::after {
+		position: absolute;
+		width: 87%;
+		height: 32px;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 0;
+		box-shadow: 0px 8px 34px rgba(150, 79, 76, 0.32);
+		border-radius: 6px;
+		content: "";
+		display: block;
+		z-index: -1;
+	}
+
+} 
+
+.short-text {
+	color: $color__sandal;
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 24px;
+
+	@media (max-width: 500px) {
+		font-size: 14px;
+		line-height: 21px;
+	}
+}
