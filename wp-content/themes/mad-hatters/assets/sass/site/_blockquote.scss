@@ -3,6 +3,9 @@
 	margin-top: 113px;
 	position: relative;
 	overflow-x: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	@media (max-width: 767px) {
 		margin-top: 25px;
@@ -44,12 +47,7 @@
 	}
 
 	&__text-wrapper {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-
-		@media (max-width: 550px) {
+		@media (max-width: 900px) {
 			width: 80%;
 		}
 	}
